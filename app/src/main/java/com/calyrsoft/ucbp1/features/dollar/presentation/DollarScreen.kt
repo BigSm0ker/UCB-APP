@@ -38,13 +38,43 @@ fun DollarScreen(viewModelDollar: DollarViewModel = koinViewModel()) {
                 Text("Cargando cotización...")
             }
             is DollarViewModel.DollarUIState.Success -> {
-                DollarCard(label = "Dólar Oficial", value = stateValue.data.dollarOfficial ?: "-", color = Color(0xFF1E88E5))
+                DollarCard(
+                    label = "Dólar Oficial",
+                    value = stateValue.data.dollarOfficial ?: "-",
+                    color = Color(0xFF1E88E5)
+                )
                 Spacer(Modifier.height(12.dp))
-                DollarCard(label = "Dólar Paralelo", value = stateValue.data.dollarParallel ?: "-", color = Color(0xFFD32F2F))
+                DollarCard(
+                    label = "Dólar Paralelo",
+                    value = stateValue.data.dollarParallel ?: "-",
+                    color = Color(0xFFD32F2F)
+                )
                 Spacer(Modifier.height(12.dp))
-                DollarCard(label = "Compra", value = stateValue.data.dollarCompra ?: "-", color = Color(0xFF388E3C))
+                DollarCard(
+                    label = "Compra",
+                    value = stateValue.data.dollarCompra ?: "-",
+                    color = Color(0xFF388E3C)
+                )
                 Spacer(Modifier.height(12.dp))
-                DollarCard(label = "Venta", value = stateValue.data.dollarVenta ?: "-", color = Color(0xFFF57C00))
+                DollarCard(
+                    label = "Venta",
+                    value = stateValue.data.dollarVenta ?: "-",
+                    color = Color(0xFFF57C00)
+                )
+
+                Spacer(Modifier.height(16.dp))
+
+                // 👇 Aquí mostramos la fecha/hora de actualización
+                val lastUpdate = java.text.SimpleDateFormat(
+                    "dd/MM/yyyy HH:mm:ss",
+                    java.util.Locale.getDefault()
+                ).format(java.util.Date())
+
+                Text(
+                    text = "Última actualización: $lastUpdate",
+                    fontSize = 12.sp,
+                    color = Color.Gray
+                )
             }
         }
     }
