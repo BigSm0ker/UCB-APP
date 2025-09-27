@@ -11,14 +11,15 @@ value class ProfileName(val value: String) {
 
 
 
+
 @JvmInline
 value class ProfileEmail(val value: String) {
     init {
-        require(android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()) {
-            "El email no es válido"
-        }
+        val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")
+        require(emailRegex.matches(value)) { "El email no es válido" }
     }
 }
+
 
 @JvmInline
 value class ProfilePhone(val value: String) {

@@ -81,6 +81,23 @@ dependencies {
 
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+    dependencies {
+        // … tus otras deps …
+
+        // Tests locales (JUnit4)
+        testImplementation("junit:junit:4.13.2")
+        testImplementation(libs.kotlinx.coroutines.test)
+        testImplementation(libs.mockk)
+
+        // (Opcional) Room testing si lo usas realmente
+        testImplementation(libs.room.testing)
+
+        // Quita esto:
+        // implementation(kotlin("test"))
+    }
+
+
+
 
 
 }
