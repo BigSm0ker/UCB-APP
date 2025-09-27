@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.coil.network)
     implementation(libs.androidx.navigation.compose)
 
+
     //local bundle room
     implementation(libs.bundles.local)
     annotationProcessor(libs.room.compiler)
